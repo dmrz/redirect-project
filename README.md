@@ -1,13 +1,29 @@
 # Redirect Project
 
+
+## Glossary
+
+1. [Description](#description)
+2. [Terminology](#terminology)
+3. [Functional Requirements Compliance](#functional-requirements-compliance)
+4. [Non-Functional Requirements Compliance](#non-functional-requirements-compliance)
+5. [Configuration](#configuration)
+6. [Project structure](#project-structure)
+7. [Run using docker compose](#run-using-docker-compose)
+8. [System design](#system-design)
+9. [Setup Python](#setup-python)
+
+
+## Description
+
 Accepts a client request and redirects to corresponding host accordingly to configuration of the redirect pool used. Redirect pool can be specified using `X-Redirect-Pool-ID` header in request (out-of-the-box configuration declares the following pools: `pool-a`, `pool-b` and `pool-c`), but is not mandatory (default one will be used as a fallback). HTTP scheme, path and query string parameters of the original request are preserved in redirected location. All HTTP methods are supported, please use status code 307 in pool configuration for methods that include request body, to inform client to resend them on redirect.
 
 If there is a possible redirect loop (original host and target host are same value) - service will respond with status code 422.
 
 ## Terminology
 
-Redirect Pool == Domain (Host) Pool from assignment
-Origin == target host where client is eventually redirected
+- Redirect Pool == Domain (Host) Pool from assignment
+- Origin == target host where client is eventually redirected
 
 ## Functional Requirements Compliance
 
