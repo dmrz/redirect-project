@@ -1,0 +1,8 @@
+[test-pool-a]
+weighted_hosts = { host-1 = 2, host-2 = 1 }
+status = 302
+is_default = true
+
+[test-pool-b]
+weighted_hosts = { host-3 = 1, host-4 = 1 }
+status = 302

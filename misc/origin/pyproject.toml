@@ -1,0 +1,6 @@
+[project]
+name = "hello"
+description = "simple hello world service"
+version = "1.0.0"
+dependencies = ["aiodns==3.1.1", "aiohttp==3.9.1", "Brotli==1.1.0"]
+requires-python = ">=3.12"

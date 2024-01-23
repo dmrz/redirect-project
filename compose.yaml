@@ -1,0 +1,28 @@
+services:
+
+  haproxy:
+    build:
+      context: misc/haproxy
+    depends_on:
+      - redirect
+
+  redirect:
+    build:
+      context: .
+    deploy:
+      replicas: 3
+
+  origin:
+    build:
+      context: misc/origin
+    deploy:
+      replicas: 9
+
+  wrk:
+    build:
+      context: misc/wrk
+    depends_on:
+      - origin
+      - redirect
+      - haproxy
+    command: -t3 -c300 -d15s -s /scripts/random_redirect_pool_id.lua http://haproxy:8888/endpoint/path?x=1\&y=2\&z=3

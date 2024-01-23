@@ -1,0 +1,12 @@
+[pool-a]
+weighted_hosts = { redirect-project-origin-1 = 2, redirect-project-origin-2 = 1, redirect-project-origin-3 = 1 }
+status = 302
+is_default = true
+
+[pool-b]
+weighted_hosts = { redirect-project-origin-4 = 1, redirect-project-origin-5 = 2, redirect-project-origin-6 = 2 }
+status = 302
+
+[pool-c]
+weighted_hosts = { redirect-project-origin-7 = 1, redirect-project-origin-8 = 3, redirect-project-origin-9 = 1 }
+status = 302
